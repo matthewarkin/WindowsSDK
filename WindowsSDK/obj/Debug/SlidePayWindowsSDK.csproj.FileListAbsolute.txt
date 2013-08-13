@@ -1,0 +1,5 @@
+c:\cube\code\WindowsSDK\WindowsSDK\bin\Debug\SlidePayWindowsSDK.dll
+c:\cube\code\WindowsSDK\WindowsSDK\bin\Debug\SlidePayWindowsSDK.pdb
+c:\cube\code\WindowsSDK\WindowsSDK\bin\Debug\Newtonsoft.Json.dll
+c:\cube\code\WindowsSDK\WindowsSDK\obj\Debug\SlidePayWindowsSDK.dll
+c:\cube\code\WindowsSDK\WindowsSDK\obj\Debug\SlidePayWindowsSDK.pdb

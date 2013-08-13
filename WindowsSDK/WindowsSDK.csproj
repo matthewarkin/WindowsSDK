@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B1ED1784-7A11-4A35-8A75-208679BF149A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WindowsSDK</RootNamespace>
+    <AssemblyName>WindowsSDK</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net35\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="sdk\APIs\endpoint\sp_find_endpoint.cs" />
+    <Compile Include="sdk\APIs\login\sp_reset.cs" />
+    <Compile Include="sdk\APIs\login\sp_login.cs" />
+    <Compile Include="sdk\APIs\payments\sp_track2_payment.cs" />
+    <Compile Include="sdk\APIs\payments\sp_track1_payment.cs" />
+    <Compile Include="sdk\APIs\payments\sp_put_payment.cs" />
+    <Compile Include="sdk\APIs\payments\sp_get_all_payments.cs" />
+    <Compile Include="sdk\APIs\payments\sp_get_payment.cs" />
+    <Compile Include="sdk\APIs\payments\sp_key_payment.cs" />
+    <Compile Include="sdk\APIs\payments\sp_refund_payment.cs" />
+    <Compile Include="sdk\class_variables.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sdk\constructor.cs" />
+    <Compile Include="sdk\support\event\exception.cs" />
+    <Compile Include="sdk\support\event\log.cs" />
+    <Compile Include="sdk\support\event\web_exception.cs" />
+    <Compile Include="sdk\support\misc\log_sdk_init.cs" />
+    <Compile Include="sdk\support\misc\decimal_tostring.cs" />
+    <Compile Include="sdk\support\misc\get_total_ms.cs" />
+    <Compile Include="sdk\support\misc\string_null_or_empty.cs" />
+    <Compile Include="sdk\support\objects\search_filter.cs" />
+    <Compile Include="sdk\support\objects\payment.cs" />
+    <Compile Include="sdk\support\objects\processor_cc_txn_response.cs" />
+    <Compile Include="sdk\support\objects\simple_payment.cs" />
+    <Compile Include="sdk\support\objects\response.cs" />
+    <Compile Include="sdk\support\objects\token.cs" />
+    <Compile Include="sdk\support\objects\rest_response.cs" />
+    <Compile Include="sdk\support\serdes\deserialize_json.cs" />
+    <Compile Include="sdk\support\serdes\serialize_json.cs" />
+    <Compile Include="sdk\support\rest\rest_client.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="sdk\support\include\Newtonsoft.Json.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

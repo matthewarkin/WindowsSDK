@@ -1,0 +1,5 @@
+c:\cube\code\WindowsSDK\WindowsSDK\bin\Debug\WindowsSDK.dll
+c:\cube\code\WindowsSDK\WindowsSDK\bin\Debug\WindowsSDK.pdb
+c:\cube\code\WindowsSDK\WindowsSDK\obj\Debug\Cube-Windows-SDK.csprojResolveAssemblyReference.cache
+c:\cube\code\WindowsSDK\WindowsSDK\obj\Debug\WindowsSDK.dll
+c:\cube\code\WindowsSDK\WindowsSDK\obj\Debug\WindowsSDK.pdb
