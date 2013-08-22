@@ -24,7 +24,8 @@ namespace WindowsSDK
 
                 if ((String.Compare(method.ToLower().Trim(), "get") != 0) &&
                     (String.Compare(method.ToLower().Trim(), "post") != 0) &&
-                    (String.Compare(method.ToLower().Trim(), "put") != 0))
+                    (String.Compare(method.ToLower().Trim(), "put") != 0) &&
+                    (String.Compare(method.ToLower().Trim(), "delete") != 0))
                 {
                     log("rest_client invalid method specified: " + method, true);
                     return null;

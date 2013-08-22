@@ -96,6 +96,8 @@ namespace WindowsSDKTest
 
                 switch (user_input)
                 {
+                    #region General
+
                     case "?":
                         menu();
                         break;
@@ -124,6 +126,10 @@ namespace WindowsSDKTest
                         if (slidepay.sp_login()) Console.WriteLine("Successfully authenticated using email " + email);
                         else exit_application("Unable to authenticate using email " + email);
                         break;
+
+                    #endregion
+
+                    #region Payment
 
                     case "key_payment":
                         if (key_payment(slidepay)) Console.WriteLine("Payment request succeeded.");
@@ -159,6 +165,32 @@ namespace WindowsSDKTest
                         if (put_payment(slidepay)) Console.WriteLine("Payment search request succeeded.");
                         else Console.WriteLine("Payment search request failed.");
                         break;
+
+                    #endregion
+
+                    #region Bank-Account
+
+                    case "get_bank_account":
+                        if (get_bank_account(slidepay)) Console.WriteLine("Bank account retrieval request succeeded.");
+                        else Console.WriteLine("Bank account retrieval request failed.");
+                        break;
+                        
+                    case "get_all_bank_accounts":
+                        if (get_all_bank_accounts(slidepay)) Console.WriteLine("Bank account retrieval request succeeded.");
+                        else Console.WriteLine("Bank account retrieval request failed.");
+                        break;
+                        
+                    case "del_bank_account":
+                        if (del_bank_account(slidepay)) Console.WriteLine("Bank account delete request succeeded.");
+                        else Console.WriteLine("Bank account delete request failed.");
+                        break;
+                        
+                    case "create_bank_account":
+                        if (create_bank_account(slidepay)) Console.WriteLine("Bank account creation request succeeded.");
+                        else Console.WriteLine("Bank account creation request failed.");
+                        break;
+
+                    #endregion
 
                     default:
                         Console.WriteLine("Unknown command '" + user_input + "'.  Type '?' and press ENTER for a menu.");
