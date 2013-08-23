@@ -12,11 +12,7 @@ namespace WindowsSDK
             _email = email;
             _password = password;
             _debug_output = false;
-
-            _use_proxy = false;
             _proxy_url = "";
-            _accept_invalid_ssl_certificates = false;
-
             log_sdk_init();
         }
 
@@ -25,24 +21,16 @@ namespace WindowsSDK
             _email = email;
             _password = password;
             _debug_output = debug_output;
-
-            _use_proxy = false;
             _proxy_url = "";
-            _accept_invalid_ssl_certificates = false;
-
             log_sdk_init();
         }
 
-        public SlidePayWindowsSDK(string email, string password, bool debug_output, bool use_proxy, string proxy_url)
+        public SlidePayWindowsSDK(string email, string password, bool debug_output, string proxy_url)
         {
             _email = email;
             _password = password;
-            _debug_output = true;
-
-            _use_proxy = false;
-            _proxy_url = "";
-            _accept_invalid_ssl_certificates = false;
-
+            _debug_output = debug_output;
+            _proxy_url = proxy_url;
             log_sdk_init();
         }
     }

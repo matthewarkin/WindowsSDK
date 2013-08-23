@@ -41,8 +41,7 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="WindowsSDK, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="WindowsSDK">
       <HintPath>..\WindowsSDK\bin\Debug\WindowsSDK.dll</HintPath>
     </Reference>
   </ItemGroup>

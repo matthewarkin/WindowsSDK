@@ -51,6 +51,7 @@ namespace WindowsSDK
                 client.Timeout = 30000;
                 client.ContentLength = 0;
                 client.ContentType = "application/json";
+                client.UserAgent = "SlidePay-WindowsSDK-" + _version;
 
                 if (timeout == null)
                 {
@@ -84,16 +85,12 @@ namespace WindowsSDK
 
                 #region Setup-the-Proxy-and-Allow-Invalid-SSL-Certificates
 
-                if (_use_proxy)
+                if (!string_null_or_empty(_proxy_url))
                 {
                     WebProxy proxy = new WebProxy();
                     proxy.Address = new Uri(_proxy_url);
                     client.Proxy = proxy;
-
-                    if (_accept_invalid_ssl_certificates)
-                    {
-                        ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
-                    }
+                    ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
                 }
 
                 #endregion

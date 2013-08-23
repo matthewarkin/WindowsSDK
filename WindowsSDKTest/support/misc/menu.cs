@@ -14,9 +14,8 @@ namespace WindowsSDKTest
             Console.WriteLine("  ?                 help / this menu");
             Console.WriteLine("  q                 quit / exit this application");
             Console.WriteLine("  config            show email, password, endpoint URL, and token");
-            Console.WriteLine("  credentials       clear credentials and reconfigure");
             Console.WriteLine("  find_endpoint     find endpoint using configured credentials");
-            Console.WriteLine("  authenticate      authenticate using configured credentials");
+            Console.WriteLine("  authenticate      reconfigure credentials and authenticate");
             Console.WriteLine("");
             Console.WriteLine("Payment APIs:");
             Console.WriteLine("  key_payment       process a simple payment using keyed card details");

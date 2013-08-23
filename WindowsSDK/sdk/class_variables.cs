@@ -12,9 +12,7 @@ namespace WindowsSDK
         #region General-Variables
 
         private bool _debug_output = false;
-        private bool _use_proxy = false;
         private string _proxy_url = "";
-        private bool _accept_invalid_ssl_certificates = false;
         private string _version = "v1.0.0";
 
         #endregion

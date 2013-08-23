@@ -38,17 +38,27 @@ namespace WindowsSDKTest
              * The default constructor is used in the first example.  Only the email adddress and password
              * need to be supplied.
              * 
-             * The second constructor (commented out) enables debugging via the debug output window.
+             * The second constructor enables debugging via the debug output window.
              * 
-             * The third constructor (commented out) enables debugging via the debug output window and
+             * The third constructor enables debugging via the debug output window and
              * further routes RESTful HTTPS requests through a configured proxy.  SlidePay recommends
              * using Charles Proxy as a proxy should you need to view requests and responses.
              * 
              */
 
             // SlidePayWindowsSDK slidepay = new SlidePayWindowsSDK(email, password);
-            SlidePayWindowsSDK slidepay = new SlidePayWindowsSDK(email, password, true);
-            // SlidePayWindowsSDK slidepay = new SlidePayWindowsSDK(email, password, true, true, proxy_url);
+            // SlidePayWindowsSDK slidepay = new SlidePayWindowsSDK(email, password, true);
+            // SlidePayWindowsSDK slidepay = new SlidePayWindowsSDK(email, password, true, proxy_url);
+
+            SlidePayWindowsSDK slidepay;
+            if (string_null_or_empty(proxy_url))
+            {
+                slidepay = new SlidePayWindowsSDK(email, password, true);
+            }
+            else
+            {
+                slidepay = new SlidePayWindowsSDK(email, password, true, proxy_url);
+            }
 
             #endregion
 
@@ -110,19 +120,14 @@ namespace WindowsSDKTest
                         display_config(slidepay);
                         break;
 
-                    case "credentials":
-                        slidepay.sp_reset();
-                        set_auth_parameters(out email, out password, out proxy_url);
-                        Console.WriteLine("Token details cleared.  Please find endpoint again and re-authenticate.");
-                        slidepay = new SlidePayWindowsSDK(email, password, true);
-                        break;
-
                     case "find_endpoint":
                         if (slidepay.sp_find_endpoint()) Console.WriteLine("Found endpoint: " + slidepay._endpoint_url);
                         else exit_application("Could not find an endpoint for email " + email);
                         break;
 
                     case "authenticate":
+                        slidepay.sp_reset();
+                        set_auth_parameters(out email, out password, out proxy_url);
                         if (slidepay.sp_login()) Console.WriteLine("Successfully authenticated using email " + email);
                         else exit_application("Unable to authenticate using email " + email);
                         break;
