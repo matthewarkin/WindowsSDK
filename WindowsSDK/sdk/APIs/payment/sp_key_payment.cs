@@ -99,12 +99,6 @@ namespace WindowsSDK
                 return null;
             }
 
-            if (!key_payment_resp.success)
-            {
-                log("sp_key_payment success false returned from server for simple payment call", true);
-                return null;
-            }
-
             try
             {
                 curr_resp = deserialize_json<processor_cc_txn_response>(key_payment_resp.data.ToString());

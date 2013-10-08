@@ -74,6 +74,10 @@
     <Compile Include="sdk\support\misc\get_total_ms.cs" />
     <Compile Include="sdk\support\misc\string_null_or_empty.cs" />
     <Compile Include="sdk\support\objects\bank_account.cs" />
+    <Compile Include="sdk\support\objects\boarding_request.cs" />
+    <Compile Include="sdk\support\objects\boarding_questions.cs" />
+    <Compile Include="sdk\support\objects\boarding_question.cs" />
+    <Compile Include="sdk\support\objects\create_account.cs" />
     <Compile Include="sdk\support\objects\search_filter.cs" />
     <Compile Include="sdk\support\objects\payment.cs" />
     <Compile Include="sdk\support\objects\processor_cc_txn_response.cs" />

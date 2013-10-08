@@ -24,6 +24,7 @@ namespace WindowsSDK
         public string _email = "";
         public string _password = "";
         public string _token_string = "";
+        public DateTime _token_created = DateTime.Now;
         private token _token;
 
         #endregion

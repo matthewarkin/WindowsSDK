@@ -119,6 +119,7 @@ namespace WindowsSDK
             {
                 log("sp_login retrieved token detail: " + detail_resp.data.ToString());
                 _token = deserialize_json<token>(detail_resp.data.ToString());
+                _token_created = DateTime.Now;
                 log("sp_login token detail retrieved");
             }
             catch (Exception)

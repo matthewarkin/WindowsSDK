@@ -16,3 +16,6 @@ C:\Cube\code\WindowsSDK\WindowsSDKTest\bin\Debug\Newtonsoft.Json.dll
 C:\Cube\code\WindowsSDK\WindowsSDKTest\obj\Debug\WindowsSDKTest.csprojResolveAssemblyReference.cache
 C:\Cube\code\WindowsSDK\WindowsSDKTest\bin\Debug\WindowsSDK.dll
 C:\Cube\code\WindowsSDK\WindowsSDKTest\bin\Debug\WindowsSDK.pdb
+C:\Code\Cube\WindowsSDK\WindowsSDKTest\bin\Debug\WindowsSDKTest.exe.config
+C:\Code\Cube\WindowsSDK\WindowsSDKTest\obj\Debug\WindowsSDKTest.exe
+C:\Code\Cube\WindowsSDK\WindowsSDKTest\obj\Debug\WindowsSDKTest.pdb
