@@ -112,6 +112,22 @@ namespace WindowsSDKTest
                         menu();
                         break;
 
+                    case "? ach":
+                        menu_ach();
+                        break;
+
+                    case "? bank_account":
+                        menu_bank_account();
+                        break;
+
+                    case "? payment":
+                        menu_payment();
+                        break;
+
+                    case "? report":
+                        menu_report();
+                        break;
+
                     case "q":
                         run_forever = false;
                         break;
@@ -195,6 +211,39 @@ namespace WindowsSDKTest
                         else Console.WriteLine("Bank account creation request failed.");
                         break;
 
+                    #endregion
+
+                    #region ACH
+
+                    case "ach_balance":
+                        if (post_ach_balance(slidepay)) Console.WriteLine("ACH balance retrieval request succeeded.");
+                        else Console.WriteLine("ACH balance retrieval request failed.");
+                        break;
+
+                    case "ach_settlement":
+                        if (post_ach_settlement(slidepay)) Console.WriteLine("ACH settlement request succeeded.");
+                        else Console.WriteLine("ACH settlement request failed.");
+                        break;
+
+                    case "ach_retrieval":
+                        if (post_ach_retrieval(slidepay)) Console.WriteLine("ACH retrieval request succeeded.");
+                        else Console.WriteLine("ACH retrieval request failed.");
+                        break;
+
+                    #endregion
+
+                    #region Report
+
+                    case "payment_report":
+                        if (post_payment_report(slidepay)) Console.WriteLine("Payment report retrieval request succeeded.");
+                        else Console.WriteLine("Payment report retrieval request failed.");
+                        break;
+
+                    case "account_report":
+                        if (post_account_report(slidepay)) Console.WriteLine("Account report retrieval request succeeded.");
+                        else Console.WriteLine("Payment report retrieval request failed.");
+                        break;
+                        
                     #endregion
 
                     default:

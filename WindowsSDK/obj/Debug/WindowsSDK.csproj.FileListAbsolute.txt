@@ -6,6 +6,6 @@ C:\Cube\code\WindowsSDK\WindowsSDK\obj\Debug\WindowsSDK.pdb
 C:\Code\Cube\WindowsSDK\WindowsSDK\bin\Debug\WindowsSDK.dll
 C:\Code\Cube\WindowsSDK\WindowsSDK\bin\Debug\WindowsSDK.pdb
 C:\Code\Cube\WindowsSDK\WindowsSDK\bin\Debug\Newtonsoft.Json.dll
-C:\Code\Cube\WindowsSDK\WindowsSDK\obj\Debug\WindowsSDK.csprojResolveAssemblyReference.cache
 C:\Code\Cube\WindowsSDK\WindowsSDK\obj\Debug\WindowsSDK.dll
 C:\Code\Cube\WindowsSDK\WindowsSDK\obj\Debug\WindowsSDK.pdb
+C:\Code\Cube\WindowsSDK\WindowsSDK\obj\Debug\WindowsSDK.csprojResolveAssemblyReference.cache
