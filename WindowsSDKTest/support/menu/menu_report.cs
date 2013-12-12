@@ -12,7 +12,7 @@ namespace WindowsSDKTest
             Console.WriteLine("===============================================================================");
             Console.WriteLine("Report APIs:");
             Console.WriteLine("  payment_report  retrieve a payment report based on location ID, date range");
-            Console.WriteLine("  account_report  retrieve an account report based on location ID, date range");
+            Console.WriteLine("  account_report  retrieve an account report based on location ID");
             Console.WriteLine("===============================================================================");
         }
     }

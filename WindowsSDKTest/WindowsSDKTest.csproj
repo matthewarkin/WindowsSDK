@@ -64,6 +64,7 @@
     <Compile Include="api_wrappers\payment\get_payment.cs" />
     <Compile Include="api_wrappers\payment\key_payment.cs" />
     <Compile Include="api_wrappers\payment\refund_payment.cs" />
+    <Compile Include="support\class_variables.cs" />
     <Compile Include="support\event\exception.cs" />
     <Compile Include="support\event\log.cs" />
     <Compile Include="support\menu\menu_report.cs" />

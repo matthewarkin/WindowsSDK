@@ -8,7 +8,7 @@ namespace WindowsSDKTest
 {
     public partial class Program
     {
-        public static bool del_bank_account(SlidePayWindowsSDK context)
+        public static bool del_bank_account()
         {
             #region Variables
 
@@ -43,7 +43,7 @@ namespace WindowsSDKTest
 
             #region Process-Request
 
-            if (context.sp_delete_bank_account(bank_account_id))
+            if (slidepay.sp_delete_bank_account(bank_account_id))
             {
                 Console.WriteLine("Bank account delete request succeeded");
                 return true;

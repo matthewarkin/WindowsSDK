@@ -8,7 +8,7 @@ namespace WindowsSDKTest
 {
     public partial class Program
     {
-        public static bool refund_payment(SlidePayWindowsSDK context)
+        public static bool refund_payment()
         {
             #region Variables
 
@@ -44,7 +44,7 @@ namespace WindowsSDKTest
 
             #region Process-Request
 
-            curr_resp = context.sp_refund_payment(payment_id);
+            curr_resp = slidepay.sp_refund_payment(payment_id);
 
             if (curr_resp == null)
             {

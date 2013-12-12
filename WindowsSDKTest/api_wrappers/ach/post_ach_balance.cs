@@ -8,7 +8,7 @@ namespace WindowsSDKTest
 {
     public partial class Program
     {
-        public static bool post_ach_balance(SlidePayWindowsSDK context)
+        public static bool post_ach_balance()
         {
             #region Variables
 
@@ -34,7 +34,7 @@ namespace WindowsSDKTest
 
             #region Process-Request
 
-            curr_balance = context.sp_ach_balance(location_id);
+            curr_balance = slidepay.sp_ach_balance(location_id);
             if (curr_balance == null)
             {
                 Console.WriteLine("Null response for ach balance retrieval request.");

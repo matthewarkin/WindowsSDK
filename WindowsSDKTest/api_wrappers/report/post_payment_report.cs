@@ -8,7 +8,7 @@ namespace WindowsSDKTest
 {
     public partial class Program
     {
-        public static bool post_payment_report(SlidePayWindowsSDK context)
+        public static bool post_payment_report()
         {
             #region Variables
 
@@ -60,7 +60,7 @@ namespace WindowsSDKTest
 
             #region Process-Request
 
-            ret = context.sp_payment_report(location_id, start_date, end_date);
+            ret = slidepay.sp_payment_report(location_id, start_date, end_date);
             if (ret == null)
             {
                 Console.WriteLine("Null response for payment report retrieval request.");

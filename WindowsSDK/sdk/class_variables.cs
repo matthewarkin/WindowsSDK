@@ -11,21 +11,21 @@ namespace WindowsSDK
 
         #region General-Variables
 
-        private bool _debug_output = false;
-        private string _proxy_url = "";
-        private string _version = "v1.0.0";
+        public bool _debug_output = false;
+        public string _proxy_url = "";
+        public string _version = "v1.0.1";
 
         #endregion
 
         #region Authentication
 
-        private string _endpoint_discovery_url = "https://supervisor.getcube.com:65532/rest.svc/API/endpoint";
+        public string _endpoint_discovery_url = "https://supervisor.getcube.com:65532/rest.svc/API/endpoint";
         public string _endpoint_url = "";
         public string _email = "";
         public string _password = "";
         public string _token_string = "";
         public DateTime _token_created = DateTime.Now;
-        private token _token;
+        public token _token;
 
         #endregion
 

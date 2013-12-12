@@ -8,7 +8,7 @@ namespace WindowsSDKTest
 {
     public partial class Program
     {
-        public static bool create_bank_account(SlidePayWindowsSDK context)
+        public static bool create_bank_account()
         {
             #region Variables
 
@@ -90,7 +90,7 @@ namespace WindowsSDKTest
 
             #region Process-Request
 
-            resp_bank_account = context.sp_create_bank_account(
+            resp_bank_account = slidepay.sp_create_bank_account(
                 account_type,
                 routing_number,
                 account_number,

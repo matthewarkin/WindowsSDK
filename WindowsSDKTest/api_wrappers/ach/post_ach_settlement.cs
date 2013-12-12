@@ -8,7 +8,7 @@ namespace WindowsSDKTest
 {
     public partial class Program
     {
-        public static bool post_ach_settlement(SlidePayWindowsSDK context)
+        public static bool post_ach_settlement()
         {
             #region Variables
 
@@ -96,7 +96,7 @@ namespace WindowsSDKTest
 
             #region Process-Request
 
-            ret = context.sp_ach_settlement(
+            ret = slidepay.sp_ach_settlement(
                 company_id,
                 location_id,
                 req_list,

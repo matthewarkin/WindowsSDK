@@ -11,7 +11,7 @@ namespace WindowsSDKTest
         {
             Console.WriteLine("===============================================================================");
             Console.WriteLine("");
-            Console.WriteLine("SlidePay :: Windows SDK Test Program");
+            Console.WriteLine("SlidePay :: Windows SDK Test Program :: " + _version);
             Console.WriteLine("(c)2013 Cube, Co. :: Written by Joel Christner");
             Console.WriteLine("");
             Console.WriteLine("Refer to the debug output window for log information.");

@@ -8,7 +8,7 @@ namespace WindowsSDKTest
 {
     public partial class Program
     {
-        public static bool key_payment(SlidePayWindowsSDK context)
+        public static bool key_payment()
         {
             #region Variables
 
@@ -79,7 +79,7 @@ namespace WindowsSDKTest
 
             #region Process-Request
 
-            curr_resp = context.sp_key_payment(
+            curr_resp = slidepay.sp_key_payment(
                 ccn,
                 exp_mo,
                 exp_yr,

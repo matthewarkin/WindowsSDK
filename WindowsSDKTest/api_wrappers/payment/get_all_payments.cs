@@ -8,7 +8,7 @@ namespace WindowsSDKTest
 {
     public partial class Program
     {
-        public static bool get_all_payments(SlidePayWindowsSDK context)
+        public static bool get_all_payments()
         {
             #region Variables
 
@@ -18,7 +18,7 @@ namespace WindowsSDKTest
 
             #region Process-Request
 
-            curr_payment_list = context.sp_get_all_payments();
+            curr_payment_list = slidepay.sp_get_all_payments();
 
             if (curr_payment_list == null)
             {

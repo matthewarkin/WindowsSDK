@@ -8,7 +8,7 @@ namespace WindowsSDKTest
 {
     public partial class Program
     {
-        public static bool track1_payment(SlidePayWindowsSDK context)
+        public static bool track1_payment()
         {
             #region Variables
 
@@ -58,7 +58,7 @@ namespace WindowsSDKTest
 
             #region Process-Request
 
-            curr_resp = context.sp_track1_payment(
+            curr_resp = slidepay.sp_track1_payment(
                 track1,
                 notes,
                 amount);

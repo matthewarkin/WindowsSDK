@@ -13,19 +13,19 @@ namespace WindowsSDKTest
             Console.WriteLine("===============================================================================");
             Console.WriteLine("");
             Console.WriteLine("Current configuration:");
-            Console.WriteLine("  Email: " + context._email);
-            Console.WriteLine("  Password: " + context._password);
-            Console.WriteLine("  Endpoint: " + context._endpoint_url);
+            Console.WriteLine("  Email: " + slidepay._email);
+            Console.WriteLine("  Password: " + slidepay._password);
+            Console.WriteLine("  Endpoint: " + slidepay._endpoint_url);
 
-            if (!string_null_or_empty(context._token_string))
+            if (!string_null_or_empty(slidepay._token_string))
             {
-                if (context._token_string.Length > 40)
+                if (slidepay._token_string.Length > 40)
                 {
-                    Console.WriteLine("  Token: " + context._token_string.Substring(0, 40) + "...<truncated>");
+                    Console.WriteLine("  Token: " + slidepay._token_string.Substring(0, 40) + "...<truncated>");
                 }
                 else
                 {
-                    Console.WriteLine("  Token: " + context._token_string);
+                    Console.WriteLine("  Token: " + slidepay._token_string);
                 }
             }
 

@@ -8,7 +8,7 @@ namespace WindowsSDKTest
 {
     public partial class Program
     {
-        public static bool get_all_bank_accounts(SlidePayWindowsSDK context)
+        public static bool get_all_bank_accounts()
         {
             #region Variables
 
@@ -18,7 +18,7 @@ namespace WindowsSDKTest
 
             #region Process-Request
 
-            curr_bank_account_list = context.sp_get_all_bank_accounts();
+            curr_bank_account_list = slidepay.sp_get_all_bank_accounts();
 
             if (curr_bank_account_list == null)
             {

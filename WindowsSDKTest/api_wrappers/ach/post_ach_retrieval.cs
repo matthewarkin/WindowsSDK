@@ -8,7 +8,7 @@ namespace WindowsSDKTest
 {
     public partial class Program
     {
-        public static bool post_ach_retrieval(SlidePayWindowsSDK context)
+        public static bool post_ach_retrieval()
         {
             #region Variables
 
@@ -143,7 +143,7 @@ namespace WindowsSDKTest
 
             #region Process-Request
 
-            ret = context.sp_ach_retrieval(
+            ret = slidepay.sp_ach_retrieval(
                     company_id,
                     location_id,
                     user_master_id,

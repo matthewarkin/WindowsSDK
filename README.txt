@@ -29,15 +29,26 @@ The DLL output can be found in the WindowsSDK\bin directory after building.
 ===============================================================================
 
 RELEASE NOTES:
-v1.0.0
+v1.0.1 - December, 2013
+- Feature updates
+
+v1.0.0 - August, 2013
 - Initial release
 - Limited error reporting using the SDK constructor and debug/output window
 
 ===============================================================================
 
 VERSION HISTORY:
+v1.0.1 - December, 2013
+- Feature updates
+- Added account report and payment report
+- Added ACH balance, ACH settlements, and ACH retrievals
+
 v1.0.0 - August, 2013
 - Initial release
+- Payment processing, retrieval, and refunds
+- Authentication and endpoint location
+- Bank account configuration and management
 
 ===============================================================================
 
