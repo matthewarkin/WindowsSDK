@@ -123,6 +123,10 @@ namespace WindowsSDKTest
                         menu_payment();
                         break;
 
+                    case "? stored_payment":
+                        menu_stored_payment();
+                        break;
+
                     case "? report":
                         menu_report();
                         break;
@@ -156,6 +160,11 @@ namespace WindowsSDKTest
                         else Console.WriteLine("Payment request failed.");
                         break;
 
+                    case "stored_payment":
+                        if (stored_payment()) Console.WriteLine("Payment request succeeded.");
+                        else Console.WriteLine("Payment request failed.");
+                        break;
+
                     case "track1_payment":
                         if (track1_payment()) Console.WriteLine("Payment request succeeded.");
                         else Console.WriteLine("Payment request failed.");
@@ -184,6 +193,30 @@ namespace WindowsSDKTest
                     case "search_payments":
                         if (put_payment()) Console.WriteLine("Payment search request succeeded.");
                         else Console.WriteLine("Payment search request failed.");
+                        break;
+
+                    #endregion
+
+                    #region Stored-Payment
+
+                    case "create_stored_payment":
+                        if (create_stored_payment()) Console.WriteLine("Stored payment request succeeded.");
+                        else Console.WriteLine("Stored payment request failed.");
+                        break;
+
+                    case "get_stored_payment":
+                        if (get_stored_payment()) Console.WriteLine("Stored payment request succeeded.");
+                        else Console.WriteLine("Stored payment request failed.");
+                        break;
+
+                    case "get_all_stored_payments":
+                        if (get_all_stored_payments()) Console.WriteLine("Stored payment request succeeded.");
+                        else Console.WriteLine("Stored payment request failed.");
+                        break;
+
+                    case "delete_stored_payment":
+                        if (del_stored_payment()) Console.WriteLine("Stored payment request succeeded.");
+                        else Console.WriteLine("Stored payment request failed.");
                         break;
 
                     #endregion

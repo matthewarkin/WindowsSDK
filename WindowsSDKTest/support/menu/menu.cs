@@ -17,6 +17,7 @@ namespace WindowsSDKTest
             Console.WriteLine("  find_endpoint      find endpoint using configured credentials");
             Console.WriteLine("  authenticate       reconfigure credentials and authenticate");
             Console.WriteLine("  ? payment          show payment commands");
+            Console.WriteLine("  ? stored_payment   show stored_payment commands");
             Console.WriteLine("  ? bank_account     show bank_account commands");
             Console.WriteLine("  ? ach              show ach commands");
             Console.WriteLine("  ? report           show report commands");

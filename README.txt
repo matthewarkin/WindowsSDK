@@ -42,7 +42,8 @@ VERSION HISTORY:
 v1.0.1 - December, 2013
 - Feature updates
 - Added account report and payment report
-- Added ACH balance, ACH settlements, and ACH retrievals
+- Added ACH balance, ACH settlements, ACH retrievals
+- Added stored payment support
 
 v1.0.0 - August, 2013
 - Initial release
