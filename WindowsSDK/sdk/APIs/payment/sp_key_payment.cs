@@ -65,6 +65,7 @@ namespace WindowsSDK
             curr.cc_billing_zip = zip;
             curr.amount = amount;
             curr.method = "CreditCard";
+            curr.device_type = "win8-sdk";
 
             #endregion
 
