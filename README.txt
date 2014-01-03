@@ -28,6 +28,41 @@ The DLL output can be found in the WindowsSDK\bin directory after building.
 
 ===============================================================================
 
+GETTING STARTED:
+
+1) Add reference to WindowsSDK.dll
+using WindowsSDK;
+
+2) Instantiate:
+SlidePayWindowsSDK slidepay = new SlidePayWindowsSDK("my@email.com", "password", true);
+
+3) Find endpoint:
+if (!slidepay.sp_find_endpoint()) Environment.Exit(-1);
+
+4) Login:
+if (!slidepay.sp_login()) Environment.Exit(-1);
+
+5) Process a payment:
+processor_cc_txn_response curr = slidepay.sp_key_payment(
+  "4111111111111111",  // CCN
+  "11",                // expiration month
+  "1111",              // expiration year
+  "111",               // CVV2
+  "11111",             // billing zip
+  "Test payment",      // notes
+  1.05                 // amount
+  );
+if (!processor_cc_txn_response.is_approved)
+{
+	Console.WriteLine("Declined");
+}
+else
+{
+	Console.WriteLine("Approved payment ID " + curr.payment_id);
+}
+
+===============================================================================
+
 RELEASE NOTES:
 v1.0.1 - December, 2013
 - Feature updates
