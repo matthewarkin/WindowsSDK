@@ -54,6 +54,7 @@
     <Compile Include="api_wrappers\bank_account\del_bank_account.cs" />
     <Compile Include="api_wrappers\bank_account\get_all_bank_accounts.cs" />
     <Compile Include="api_wrappers\bank_account\get_bank_account.cs" />
+    <Compile Include="api_wrappers\misc\token_detail.cs" />
     <Compile Include="api_wrappers\payment\stored_payment.cs" />
     <Compile Include="api_wrappers\report\post_account_report.cs" />
     <Compile Include="api_wrappers\report\post_payment_report.cs" />

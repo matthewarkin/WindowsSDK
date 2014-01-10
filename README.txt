@@ -1,6 +1,6 @@
 ===============================================================================
 
-SlidePay Windows SDK :: (c)2013 Cube, Co. :: v1.0.0
+SlidePay Windows SDK :: (c)2013 Cube, Co. :: v1.0.2
 Written by Joel Christner
 
 For support, email support@getcube.com
@@ -33,16 +33,21 @@ GETTING STARTED:
 1) Add reference to WindowsSDK.dll
 using WindowsSDK;
 
-2) Instantiate:
-SlidePayWindowsSDK slidepay = new SlidePayWindowsSDK("my@email.com", "password", true);
+2) Instantiate and Authenticate:
+Using credentials:
+slidepay = new SlidePayWindowsSDK("email", "me@domain.com", "password", true, null);
+if (!slidepay.sp_find_endpoint()) exit_application("Could not find an endpoint for email " + email);
+if (!slidepay.sp_login()) exit_application("Unable to authenticate");
 
-3) Find endpoint:
-if (!slidepay.sp_find_endpoint()) Environment.Exit(-1);
+Using API key:
+slidepay = new SlidePayWindowsSDK("api_key", "my_api_key", "https://dev.getcube.com:65532/rest.svc/API/", true, null);
+if (!slidepay.sp_token_detail()) exit_application("Could not retrieve token details");
 
-4) Login:
-if (!slidepay.sp_login()) Environment.Exit(-1);
+Using token:
+slidepay = new SlidePayWindowsSDK("token", "A81Dha381x<truncated_token>", "https://dev.getcube.com:65532/rest.svc/API/", true, null);
+if (!slidepay.sp_token_detail()) exit_application("Could not retrieve token details");
 
-5) Process a payment:
+3) Process a payment:
 processor_cc_txn_response curr = slidepay.sp_key_payment(
   "4111111111111111",  // CCN
   "11",                // expiration month
@@ -52,18 +57,15 @@ processor_cc_txn_response curr = slidepay.sp_key_payment(
   "Test payment",      // notes
   1.05                 // amount
   );
-if (!processor_cc_txn_response.is_approved)
-{
-	Console.WriteLine("Declined");
-}
-else
-{
-	Console.WriteLine("Approved payment ID " + curr.payment_id);
-}
+if (!processor_cc_txn_response.is_approved) Console.WriteLine("Declined");
+else Console.WriteLine("Approved payment ID " + curr.payment_id);
 
 ===============================================================================
 
 RELEASE NOTES:
+v1.0.2 - January, 2014
+- Feature updates
+
 v1.0.1 - December, 2013
 - Feature updates
 
@@ -74,6 +76,12 @@ v1.0.0 - August, 2013
 ===============================================================================
 
 VERSION HISTORY:
+v1.0.2 - January, 2014
+- Feature updates
+- Added support for authentication via existing token
+- Added support for authentication via API key
+- Added support for retrieval of token detail
+
 v1.0.1 - December, 2013
 - Feature updates
 - Added account report and payment report

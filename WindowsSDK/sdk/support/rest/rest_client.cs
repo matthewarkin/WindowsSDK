@@ -75,9 +75,13 @@ namespace WindowsSDK
                     client.Headers.Add("x-cube-email", _email);
                     client.Headers.Add("x-cube-password", _password);
                 }
+                else if (!string_null_or_empty(_api_key))
+                {
+                    client.Headers.Add("x-cube-api-key", _api_key);
+                }
                 else
                 {
-                    log("rest_client token not found, and both email and password are null", true);
+                    log("rest_client token not found, authentication material not yet set", true);
                     return null;
                 }
 

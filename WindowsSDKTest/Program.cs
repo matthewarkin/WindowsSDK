@@ -15,6 +15,10 @@ namespace WindowsSDKTest
             string email = "";
             string password = "";
             string proxy_url = "";
+            string api_key = "";
+            string endpoint = "";
+            string token = "";
+            bool debug_output = true;
             bool run_forever = true;
             string user_input = "";
 
@@ -28,61 +32,68 @@ namespace WindowsSDKTest
 
             #region Set-Authentication Parameters
 
-            set_auth_parameters(out email, out password, out proxy_url);
-
+            set_auth_parameters(out email, out password, out proxy_url, out api_key, out endpoint, out token, out debug_output);
+            
             #endregion
 
             #region Instantiate-SDK
 
-            /*
-             * The default constructor is used in the first example.  Only the email adddress and password
-             * need to be supplied.
-             * 
-             * The second constructor enables debugging via the debug output window.
-             * 
-             * The third constructor enables debugging via the debug output window and
-             * further routes RESTful HTTPS requests through a configured proxy.  SlidePay recommends
-             * using Charles Proxy as a proxy should you need to view requests and responses.
-             * 
-             */
-
-            // SlidePayWindowsSDK slidepay = new SlidePayWindowsSDK(email, password);
-            // SlidePayWindowsSDK slidepay = new SlidePayWindowsSDK(email, password, true);
-            // SlidePayWindowsSDK slidepay = new SlidePayWindowsSDK(email, password, true, proxy_url);
-
-            if (string_null_or_empty(proxy_url))
+            if (!string_null_or_empty(email) && !string_null_or_empty(password))
             {
-                slidepay = new SlidePayWindowsSDK(email, password, true);
+                #region Credentials
+                
+                slidepay = new SlidePayWindowsSDK("email", email, password, debug_output, proxy_url);
+
+                #endregion
+
+                #region Find-Endpoint
+
+                if (slidepay.sp_find_endpoint()) Console.WriteLine("Found endpoint: " + slidepay._endpoint_url);
+                else exit_application("Could not find an endpoint for email " + email);
+
+                #endregion
+
+                #region Login
+
+                if (slidepay.sp_login()) Console.WriteLine("Successfully authenticated");
+                else exit_application("Unable to authenticate");
+
+                #endregion
+            }
+            else if (!string_null_or_empty(api_key) && !string_null_or_empty(endpoint))
+            {
+                #region API-Key-and-Endpoint
+                
+                slidepay = new SlidePayWindowsSDK("api_key", api_key, endpoint, debug_output, proxy_url);
+
+                #endregion
+
+                #region Get-Token-Details
+
+                if (slidepay.sp_token_detail()) Console.WriteLine("Successfully retrieved token details");
+                else exit_application("Could not retrieve token details");
+
+                #endregion
+            }
+            else if (!string_null_or_empty(token) && !string_null_or_empty(endpoint))
+            {
+                #region Token-and-Endpoint
+                
+                slidepay = new SlidePayWindowsSDK("token", token, endpoint, debug_output, proxy_url);
+
+                #endregion
+
+                #region Get-Token-Details
+
+                if (slidepay.sp_token_detail()) Console.WriteLine("Successfully retrieved token details");
+                else exit_application("Could not retrieve token details");
+
+                #endregion
             }
             else
             {
-                slidepay = new SlidePayWindowsSDK(email, password, true, proxy_url);
-            }
-
-            #endregion
-
-            #region Find-Endpoint
-
-            if (slidepay.sp_find_endpoint())
-            {
-                Console.WriteLine("Found endpoint: " + slidepay._endpoint_url);
-            }
-            else
-            {
-                exit_application("Could not find an endpoint for email " + email);
-            }
-
-            #endregion
-
-            #region Login
-
-            if (slidepay.sp_login())
-            {
-                Console.WriteLine("Successfully authenticated using email " + email);
-            }
-            else
-            {
-                exit_application("Unable to authenticate using email " + email);
+                exit_application("Authentication material not set.");
+                return;
             }
 
             #endregion
@@ -146,9 +157,14 @@ namespace WindowsSDKTest
 
                     case "authenticate":
                         slidepay.sp_reset();
-                        set_auth_parameters(out email, out password, out proxy_url);
-                        if (slidepay.sp_login()) Console.WriteLine("Successfully authenticated using email " + email);
-                        else exit_application("Unable to authenticate using email " + email);
+                        set_auth_parameters(out email, out password, out proxy_url, out api_key, out endpoint, out token, out debug_output);
+                        if (slidepay.sp_login()) Console.WriteLine("Successfully authenticated");
+                        else exit_application("Unable to authenticate");
+                        break;
+
+                    case "token detail":
+                        if (token_detail()) Console.WriteLine("Successfully retrieve token details");
+                        else exit_application("Could not retrieve token details");
                         break;
 
                     #endregion

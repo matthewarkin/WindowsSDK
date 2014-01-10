@@ -13,13 +13,7 @@ namespace WindowsSDK
         public bool sp_login()
         {
             #region Check-for-Null-Values
-
-            if (string_null_or_empty(_email) || string_null_or_empty(_password))
-            {
-                log("sp_login null value detected for either email or password", true);
-                return false;
-            }
-
+            
             if (string_null_or_empty(_endpoint_url))
             {
                 log("sp_login null value detected for endpoint URL", true);

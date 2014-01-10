@@ -7,31 +7,45 @@ namespace WindowsSDK
 {
     public partial class SlidePayWindowsSDK
     {
-        public SlidePayWindowsSDK(string email, string password)
+        public SlidePayWindowsSDK(string auth, string param1, string param2, bool debug_output, string proxy_url)
         {
-            _email = email;
-            _password = password;
-            _debug_output = false;
-            _proxy_url = "";
-            log_sdk_init();
-        }
+            switch (auth)
+            {
+                case "email":
+                    _email = param1;
+                    _password = param2;
+                    _debug_output = debug_output;
+                    _proxy_url = proxy_url;
+                    _api_key = "";
+                    _token_string = "";
+                    _endpoint_url = "";
+                    _debug_output = debug_output;
+                    log_sdk_init();
+                    break;
 
-        public SlidePayWindowsSDK(string email, string password, bool debug_output)
-        {
-            _email = email;
-            _password = password;
-            _debug_output = debug_output;
-            _proxy_url = "";
-            log_sdk_init();
-        }
+                case "api_key":
+                    _email = "";
+                    _password = "";
+                    _debug_output = debug_output;
+                    _proxy_url = proxy_url;
+                    _api_key = param1;
+                    _token_string = "";
+                    _endpoint_url = param2;
+                    _debug_output = debug_output;
+                    log_sdk_init();break;
 
-        public SlidePayWindowsSDK(string email, string password, bool debug_output, string proxy_url)
-        {
-            _email = email;
-            _password = password;
-            _debug_output = debug_output;
-            _proxy_url = proxy_url;
-            log_sdk_init();
+                case "token":
+                    _email = "";
+                    _password = "";
+                    _debug_output = debug_output;
+                    _proxy_url = proxy_url;
+                    _api_key = "";
+                    _token_string = param1;
+                    _endpoint_url = param2;
+                    _debug_output = debug_output;
+                    log_sdk_init();
+                    break;
+            }
         }
     }
 }
