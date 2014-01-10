@@ -59,6 +59,13 @@ namespace WindowsSDKTest
                 else exit_application("Unable to authenticate");
 
                 #endregion
+
+                #region Get-Token-Details
+
+                if (slidepay.sp_token_detail()) Console.WriteLine("Successfully retrieved token details");
+                else exit_application("Could not retrieve token details");
+
+                #endregion
             }
             else if (!string_null_or_empty(api_key) && !string_null_or_empty(endpoint))
             {
