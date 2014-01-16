@@ -25,3 +25,12 @@ C:\Code\Cube\WindowsSDK\WindowsSDKTest\bin\Debug\WindowsSDK.dll
 C:\Code\Cube\WindowsSDK\WindowsSDKTest\bin\Debug\Newtonsoft.Json.dll
 C:\Code\Cube\WindowsSDK\WindowsSDKTest\bin\Debug\WindowsSDK.pdb
 C:\Code\Cube\WindowsSDK\WindowsSDKTest\obj\Debug\WindowsSDKTest.csprojResolveAssemblyReference.cache
+C:\Code\SlidePay\WindowsSDK\WindowsSDKTest\bin\Debug\WindowsSDKTest.exe.config
+C:\Code\SlidePay\WindowsSDK\WindowsSDKTest\obj\Debug\WindowsSDKTest.exe
+C:\Code\SlidePay\WindowsSDK\WindowsSDKTest\obj\Debug\WindowsSDKTest.pdb
+C:\Code\SlidePay\WindowsSDK\WindowsSDKTest\obj\Debug\WindowsSDKTest.csprojResolveAssemblyReference.cache
+C:\Code\SlidePay\WindowsSDK\WindowsSDKTest\bin\Debug\WindowsSDKTest.exe
+C:\Code\SlidePay\WindowsSDK\WindowsSDKTest\bin\Debug\WindowsSDKTest.pdb
+C:\Code\SlidePay\WindowsSDK\WindowsSDKTest\bin\Debug\WindowsSDK.dll
+C:\Code\SlidePay\WindowsSDK\WindowsSDKTest\bin\Debug\Newtonsoft.Json.dll
+C:\Code\SlidePay\WindowsSDK\WindowsSDKTest\bin\Debug\WindowsSDK.pdb

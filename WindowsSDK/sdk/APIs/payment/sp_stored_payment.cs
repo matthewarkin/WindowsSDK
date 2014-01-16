@@ -13,6 +13,8 @@ namespace WindowsSDK
         public processor_cc_txn_response sp_stored_payment(
             string guid,
             string notes,
+            string latitude,
+            string longitude,
             decimal amount)
         {
             #region Check-for-Null-Values
@@ -24,6 +26,8 @@ namespace WindowsSDK
             }
 
             if (string_null_or_empty(guid) ||
+                string_null_or_empty(latitude) ||
+                string_null_or_empty(longitude) ||
                 string_null_or_empty(notes))
             {
                 log("sp_stored_payment null value detected in one of the input values", true);
@@ -54,6 +58,8 @@ namespace WindowsSDK
             curr.amount = amount;
             curr.method = "CreditCard";
             curr.device_type = "win8-sdk";
+            curr.latitude = latitude;
+            curr.longitude = longitude;
 
             #endregion
 

@@ -19,6 +19,8 @@ namespace WindowsSDKTest
             string zip = "";
             decimal amount = 0m;
             string notes = "";
+            string latitude = "";
+            string longitude = "";
             processor_cc_txn_response curr_resp = new processor_cc_txn_response();
 
             #endregion
@@ -42,6 +44,12 @@ namespace WindowsSDKTest
 
             Console.Write("Notes: ");
             notes = Console.ReadLine();
+
+            Console.WriteLine("Latitude: ");
+            latitude = Console.ReadLine();
+
+            Console.WriteLine("Longitude: ");
+            longitude = Console.ReadLine();
 
             Console.Write("Amount: ");
             try
@@ -86,6 +94,8 @@ namespace WindowsSDKTest
                 cvv2,
                 zip,
                 notes,
+                latitude,
+                longitude,
                 amount);
 
             if (curr_resp == null)

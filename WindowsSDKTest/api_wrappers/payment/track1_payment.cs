@@ -15,6 +15,8 @@ namespace WindowsSDKTest
             string track1 = "";
             decimal amount = 0m;
             string notes = "";
+            string latitude = "";
+            string longitude = "";
             processor_cc_txn_response curr_resp = new processor_cc_txn_response();
 
             #endregion
@@ -26,6 +28,12 @@ namespace WindowsSDKTest
 
             Console.Write("Notes: ");
             notes = Console.ReadLine();
+
+            Console.WriteLine("Latitude: ");
+            latitude = Console.ReadLine();
+
+            Console.WriteLine("Longitude: ");
+            longitude = Console.ReadLine();
 
             Console.Write("Amount: ");
             try
@@ -61,6 +69,8 @@ namespace WindowsSDKTest
             curr_resp = slidepay.sp_track1_payment(
                 track1,
                 notes,
+                latitude,
+                longitude,
                 amount);
 
             if (curr_resp == null)
