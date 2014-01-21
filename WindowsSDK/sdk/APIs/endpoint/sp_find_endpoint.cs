@@ -12,16 +12,6 @@ namespace WindowsSDK
     {
         public bool sp_find_endpoint()
         {
-            #region Check-for-Null-Values
-
-            if (string_null_or_empty(_email) || string_null_or_empty(_password))
-            {
-                log("sp_find_endpoint null value detected for either email or password", true);
-                return false;
-            }
-
-            #endregion
-
             #region Variables
 
             rest_response rest_resp = new rest_response();
