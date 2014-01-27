@@ -12,16 +12,6 @@ namespace WindowsSDK
     {
         public bool sp_login()
         {
-            #region Check-for-Null-Values
-            
-            if (string_null_or_empty(_endpoint_url))
-            {
-                log("sp_login null value detected for endpoint URL", true);
-                return false;
-            }
-
-            #endregion
-
             #region Variables
 
             rest_response login_rest_resp = new rest_response();
