@@ -269,7 +269,8 @@ namespace WindowsSDK
                 #region Enumerate-Response
 
                 log("rest_client " + method + " " + http_response.response_uri + " completed " + decimal_tostring(get_total_ms(start_time)) + "ms, response: " + http_response.content_length + "B " + http_response.content_type + " status " + http_response.status_code + " " + http_response.status_description);
-                response.Close();
+                
+                if (response != null) response.Close();
 
                 #endregion
 
