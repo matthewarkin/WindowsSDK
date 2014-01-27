@@ -45,10 +45,10 @@ namespace WindowsSDKTest
             Console.Write("Notes: ");
             notes = Console.ReadLine();
 
-            Console.WriteLine("Latitude: ");
+            Console.Write("Latitude: ");
             latitude = Console.ReadLine();
 
-            Console.WriteLine("Longitude: ");
+            Console.Write("Longitude: ");
             longitude = Console.ReadLine();
 
             Console.Write("Amount: ");

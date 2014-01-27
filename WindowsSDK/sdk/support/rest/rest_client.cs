@@ -39,6 +39,7 @@ namespace WindowsSDK
                 Stream temp_stream;
                 int request_bytes = 0;
                 int response_bytes = 0;
+                HttpWebResponse response = null;
 
                 #endregion
 
@@ -159,8 +160,6 @@ namespace WindowsSDK
 
                 #region Submit-Request-and-Get-Response
 
-                HttpWebResponse response;
-
                 try
                 {
                     response = (HttpWebResponse)client.GetResponse();
@@ -178,12 +177,10 @@ namespace WindowsSDK
                             if (!string_null_or_empty(body.ToString()))
                             {
                                 webexception(url, method, "WebException while calling GetResponse", body.ToString(), (WebException)e_inner);
-                                return null;
                             }
                             else
                             {
                                 webexception(url, method, "WebException while calling GetResponse", null, (WebException)e_inner);
-                                return null;
                             }
 
                             #endregion
@@ -193,7 +190,6 @@ namespace WindowsSDK
                             #region Body-is-Not-String
 
                             webexception(url, method, "WebException while calling GetResponse", null, (WebException)e_inner);
-                            return null;
 
                             #endregion
                         }
@@ -218,41 +214,22 @@ namespace WindowsSDK
                 rest_response http_response = new rest_response();
 
                 try { http_response.encoding = response.ContentEncoding; }
-                catch (Exception)
-                {
-                    log("rest_client null value for ContentEncoding", true);
-                }
+                catch (Exception) { http_response.encoding = "(null)"; }
 
                 try { http_response.content_type = response.ContentType; }
-                catch (Exception)
-                {
-                    log("rest_client null value for ContentType", true);
-                }
+                catch (Exception) { http_response.content_type = "(null)"; }
 
                 try { http_response.content_length = response.ContentLength; }
-                catch (Exception)
-                {
-                    log("rest_client null value for ContentLength", true);
-                    http_response.content_length = 0;
-                }
+                catch (Exception) { http_response.content_length = 0; }
 
                 try { http_response.response_uri = response.ResponseUri.ToString(); }
-                catch (Exception)
-                {
-                    log("rest_client null value for ResponseUri", true);
-                }
+                catch (Exception) { http_response.response_uri = "(null)"; }
 
                 try { http_response.status_code = (int)response.StatusCode; }
-                catch (Exception)
-                {
-                    log("rest_client null value for StatusCode", true);
-                }
+                catch (Exception) { http_response.status_code = 0; }
 
                 try { http_response.status_description = response.StatusDescription; }
-                catch (Exception)
-                {
-                    log("rest_client null value for StatusDescription", true);
-                }
+                catch (Exception) { http_response.status_description = "(null)"; }
 
                 try
                 {
@@ -292,7 +269,6 @@ namespace WindowsSDK
                 #region Enumerate-Response
 
                 log("rest_client " + method + " " + http_response.response_uri + " completed " + decimal_tostring(get_total_ms(start_time)) + "ms, response: " + http_response.content_length + "B " + http_response.content_type + " status " + http_response.status_code + " " + http_response.status_description);
-                log("response body: " + http_response.output_body_string);
                 response.Close();
 
                 #endregion
