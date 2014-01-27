@@ -170,18 +170,15 @@ namespace WindowsSDK
                     {
                         #region WebException
 
+                        WebException web_exception = e_inner as WebException;
+                        if (web_exception.Response != null) response = (HttpWebResponse)web_exception.Response;
+
                         if (body is string)
                         {
                             #region Body-is-String
 
-                            if (!string_null_or_empty(body.ToString()))
-                            {
-                                webexception(url, method, "WebException while calling GetResponse", body.ToString(), (WebException)e_inner);
-                            }
-                            else
-                            {
-                                webexception(url, method, "WebException while calling GetResponse", null, (WebException)e_inner);
-                            }
+                            if (!string_null_or_empty(body.ToString())) webexception(url, method, "WebException while calling GetResponse (string body)", body.ToString(), (WebException)e_inner);
+                            else webexception(url, method, "WebException while calling GetResponse", null, (WebException)e_inner);
 
                             #endregion
                         }
@@ -189,7 +186,7 @@ namespace WindowsSDK
                         {
                             #region Body-is-Not-String
 
-                            webexception(url, method, "WebException while calling GetResponse", null, (WebException)e_inner);
+                            webexception(url, method, "WebException while calling GetResponse (not string body)", null, (WebException)e_inner);
 
                             #endregion
                         }

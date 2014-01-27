@@ -31,6 +31,7 @@ namespace WindowsSDK
                         using (StreamReader reader = new StreamReader(stream))
                         {
                             string_response = reader.ReadToEnd();
+                            stream.Seek(0, SeekOrigin.Begin);
                         }
                     }
                 }
