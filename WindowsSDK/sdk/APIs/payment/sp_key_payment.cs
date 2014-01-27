@@ -10,7 +10,7 @@ namespace WindowsSDK
 {
     public partial class SlidePayWindowsSDK
     {
-        public processor_cc_txn_response sp_key_payment(
+        public object sp_key_payment(
             string ccn,
             string exp_mo,
             string exp_yr,
@@ -55,6 +55,7 @@ namespace WindowsSDK
             rest_response key_payment_rest_resp = new rest_response();
             response key_payment_resp = new response();
             processor_cc_txn_response curr_resp = new processor_cc_txn_response();
+            error_message error = new error_message();
 
             #endregion
 
@@ -89,13 +90,6 @@ namespace WindowsSDK
                 return null;
             }
 
-            if (key_payment_rest_resp.status_code != 200 &&
-                key_payment_rest_resp.status_code != 201)
-            {
-                log("sp_key_payment rest_client returned status other than 200/201 for simple payment call", true);
-                return null;
-            }
-
             try
             {
                 key_payment_resp = deserialize_json<response>(key_payment_rest_resp.output_body_string);
@@ -113,8 +107,23 @@ namespace WindowsSDK
             }
             catch (Exception)
             {
-                log("sp_key_payment unable to deserialize processor response", true);
-                return null;
+                log("sp_key_payment unable to deserialize as processor response", true);
+                curr_resp = null;
+            }
+
+            if (curr_resp == null)
+            {
+                try
+                {
+                    error = deserialize_json<error_message>(key_payment_resp.data.ToString());
+                    log("sp_key_payment error_message detected: " + error.error_code + " " + error.error_file + " " + error.error_text);
+                    return error;
+                }
+                catch (Exception)
+                {
+                    log("sp_key_payment could not deserialize as processor_cc_txn_response or error_message, returning null");
+                    return null;
+                }
             }
 
             #endregion

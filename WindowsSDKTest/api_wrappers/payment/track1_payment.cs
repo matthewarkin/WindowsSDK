@@ -17,7 +17,7 @@ namespace WindowsSDKTest
             string notes = "";
             string latitude = "";
             string longitude = "";
-            processor_cc_txn_response curr_resp = new processor_cc_txn_response();
+            object curr_resp = new object();
 
             #endregion
 
@@ -79,24 +79,40 @@ namespace WindowsSDKTest
                 return false;
             }
 
-            Console.WriteLine("===============================================================================");
-            Console.WriteLine("Payment response received: " + curr_resp.is_approved);
-            Console.WriteLine("  " + curr_resp.cc_type + " " + curr_resp.cc_redacted_number + " " + curr_resp.cc_expiry_month + "/" + curr_resp.cc_expiry_year + " " + decimal_tostring(curr_resp.amount));
-            Console.WriteLine("  Approval " + curr_resp.approval_code + " Status " + curr_resp.status_code + " " + curr_resp.status_message + " " + curr_resp.transaction_state);
-            Console.WriteLine("  Response time " + curr_resp.processor_time_ms + "ms");
-            Console.WriteLine("  Card present " + curr_resp.cc_present);
-
-            if (curr_resp.is_approved)
+            if (curr_resp is processor_cc_txn_response)
             {
-                Console.WriteLine("  Payment ID " + curr_resp.payment_id);
-                Console.WriteLine("  Stored Payment GUID " + curr_resp.stored_payment_guid);
+                Console.WriteLine("===============================================================================");
+                Console.WriteLine("Payment response received: " + ((processor_cc_txn_response)curr_resp).is_approved);
+                Console.WriteLine("  " + ((processor_cc_txn_response)curr_resp).cc_type + " " + ((processor_cc_txn_response)curr_resp).cc_redacted_number + " " + ((processor_cc_txn_response)curr_resp).cc_expiry_month + "/" + ((processor_cc_txn_response)curr_resp).cc_expiry_year + " " + decimal_tostring(((processor_cc_txn_response)curr_resp).amount));
+                Console.WriteLine("  Approval " + ((processor_cc_txn_response)curr_resp).approval_code + " Status " + ((processor_cc_txn_response)curr_resp).status_code + " " + ((processor_cc_txn_response)curr_resp).status_message + " " + ((processor_cc_txn_response)curr_resp).transaction_state);
+                Console.WriteLine("  Response time " + ((processor_cc_txn_response)curr_resp).processor_time_ms + "ms");
+                Console.WriteLine("  Card present " + ((processor_cc_txn_response)curr_resp).cc_present);
+
+                if (((processor_cc_txn_response)curr_resp).is_approved)
+                {
+                    Console.WriteLine("  Payment ID " + ((processor_cc_txn_response)curr_resp).payment_id);
+                    Console.WriteLine("  Stored Payment GUID " + ((processor_cc_txn_response)curr_resp).stored_payment_guid);
+                }
+
+                Console.WriteLine("===============================================================================");
+                return ((processor_cc_txn_response)curr_resp).is_approved;
+            }
+            else if (curr_resp is error_message)
+            {
+                Console.WriteLine("===============================================================================");
+                Console.WriteLine("Error: " + ((error_message)curr_resp).error_code + " " + ((error_message)curr_resp).error_file + " " + ((error_message)curr_resp).error_text);
+                Console.WriteLine("===============================================================================");
+                return false;
+            }
+            else
+            {
+                Console.WriteLine("===============================================================================");
+                Console.WriteLine("Null response received");
+                Console.WriteLine("===============================================================================");
+                return false;
             }
 
-            Console.WriteLine("===============================================================================");
-
             #endregion
-
-            return curr_resp.is_approved;
         }
     }
 }

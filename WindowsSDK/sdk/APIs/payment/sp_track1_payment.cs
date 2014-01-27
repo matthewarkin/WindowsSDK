@@ -10,7 +10,7 @@ namespace WindowsSDK
 {
     public partial class SlidePayWindowsSDK
     {
-        public processor_cc_txn_response sp_track1_payment(
+        public object sp_track1_payment(
             string track1,
             string notes,
             string latitude,
@@ -46,6 +46,7 @@ namespace WindowsSDK
             rest_response track_payment_rest_resp = new rest_response();
             response track_payment_resp = new response();
             processor_cc_txn_response curr_resp = new processor_cc_txn_response();
+            error_message error = new error_message();
 
             #endregion
 
@@ -59,7 +60,7 @@ namespace WindowsSDK
             curr.device_type = "win8-sdk";
             curr.latitude = latitude;
             curr.longitude = longitude;
-
+            
             #endregion
 
             #region Process-Request
@@ -76,13 +77,6 @@ namespace WindowsSDK
                 return null;
             }
 
-            if (track_payment_rest_resp.status_code != 200 &&
-                track_payment_rest_resp.status_code != 201)
-            {
-                log("sp_track1_payment rest_client returned status other than 200/201 for simple payment call", true);
-                return null;
-            }
-
             try
             {
                 track_payment_resp = deserialize_json<response>(track_payment_rest_resp.output_body_string);
@@ -90,12 +84,6 @@ namespace WindowsSDK
             catch (Exception)
             {
                 log("sp_track1_payment unable to deserialize response from server for simple payment call", true);
-                return null;
-            }
-
-            if (!track_payment_resp.success)
-            {
-                log("sp_track1_payment success false returned from server for simple payment call", true);
                 return null;
             }
 
@@ -107,7 +95,22 @@ namespace WindowsSDK
             catch (Exception)
             {
                 log("sp_track1_payment unable to deserialize processor response", true);
-                return null;
+                curr_resp = null;
+            }
+
+            if (curr_resp == null)
+            {
+                try
+                {
+                    error = deserialize_json<error_message>(track_payment_resp.data.ToString());
+                    log("sp_track1_payment error_message detected: " + error.error_code + " " + error.error_file + " " + error.error_text);
+                    return error;
+                }
+                catch (Exception)
+                {
+                    log("sp_track1_payment could not deserialize as processor_cc_txn_response or error_message, returning null");
+                    return null;
+                }
             }
 
             #endregion

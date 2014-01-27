@@ -93,6 +93,7 @@
     <Compile Include="sdk\support\objects\account_report_detail.cs" />
     <Compile Include="sdk\support\objects\account.cs" />
     <Compile Include="sdk\support\objects\account_ledger.cs" />
+    <Compile Include="sdk\support\objects\error_msg.cs" />
     <Compile Include="sdk\support\objects\stored_payment.cs" />
     <Compile Include="sdk\support\objects\retrieval.cs" />
     <Compile Include="sdk\support\objects\processor_ach_txn_response.cs" />
