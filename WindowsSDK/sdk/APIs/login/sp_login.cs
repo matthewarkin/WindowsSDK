@@ -32,6 +32,12 @@ namespace WindowsSDK
 
             #endregion
 
+            #region Set-Endpoint-if-Null
+
+            if (string_null_or_empty(_endpoint_url)) _endpoint_url = "https://supervisor.getcube.com:65532/rest.svc/API/";
+
+            #endregion
+
             #region Process-Login
 
             login_rest_resp = rest_client<string>(
