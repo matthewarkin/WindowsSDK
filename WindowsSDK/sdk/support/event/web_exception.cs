@@ -26,14 +26,10 @@ namespace WindowsSDK
             {
                 try
                 {
-                    using (Stream stream = e.Response.GetResponseStream())
-                    {
-                        using (StreamReader reader = new StreamReader(stream))
-                        {
-                            string_response = reader.ReadToEnd();
-                            stream.Seek(0, SeekOrigin.Begin);
-                        }
-                    }
+                    Stream stream = e.Response.GetResponseStream();
+                    StreamReader reader = new StreamReader(stream);
+                    string_response = reader.ReadToEnd();
+                    stream.Seek(0, SeekOrigin.Begin); 
                 }
                 catch (Exception)
                 {

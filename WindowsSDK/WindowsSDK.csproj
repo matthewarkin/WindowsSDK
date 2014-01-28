@@ -111,6 +111,7 @@
     <Compile Include="sdk\support\objects\response.cs" />
     <Compile Include="sdk\support\objects\token.cs" />
     <Compile Include="sdk\support\objects\rest_response.cs" />
+    <Compile Include="sdk\support\serdes\is_default_new_or_null.cs" />
     <Compile Include="sdk\support\serdes\deserialize_json.cs" />
     <Compile Include="sdk\support\serdes\serialize_json.cs" />
     <Compile Include="sdk\support\rest\rest_client.cs" />
