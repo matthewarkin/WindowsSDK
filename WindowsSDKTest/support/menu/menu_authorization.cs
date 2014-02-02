@@ -18,6 +18,8 @@ namespace WindowsSDKTest
             Console.WriteLine("  get_authorization       retrieve authorization by ID");
             Console.WriteLine("  get_all_authorizations  retrieve all authorizations");
             Console.WriteLine("  search_authorizations   retrieve all authorizations within a date range");
+            Console.WriteLine("  capture_auth_manual     capture a specific authorization manually");
+            Console.WriteLine("  capture_auth_convert    convert authorization to be automatically captured");
             Console.WriteLine("===============================================================================");
         }
     }

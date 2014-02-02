@@ -77,6 +77,8 @@ v1.0.3 - February, 2014
 - Feature updates
 - Added support for authorization APIs
 - Added support for void API
+- Added support for capture API (conversion to automatic capture)
+- Added support for capture API (manual capture)
 
 v1.0.2 - January, 2014
 - Feature updates

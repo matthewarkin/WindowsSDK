@@ -52,6 +52,8 @@
     <Compile Include="sdk\APIs\ach\sp_ach_retrieval.cs" />
     <Compile Include="sdk\APIs\ach\sp_ach_settlement.cs" />
     <Compile Include="sdk\APIs\ach\sp_ach_balance.cs" />
+    <Compile Include="sdk\APIs\authorize\sp_capture_auth_manual.cs" />
+    <Compile Include="sdk\APIs\authorize\sp_capture_auth_convert.cs" />
     <Compile Include="sdk\APIs\authorize\sp_get_all_authorization.cs" />
     <Compile Include="sdk\APIs\authorize\sp_get_authorization.cs" />
     <Compile Include="sdk\APIs\authorize\sp_key_authorization.cs" />

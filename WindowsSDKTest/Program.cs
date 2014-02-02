@@ -217,6 +217,16 @@ namespace WindowsSDKTest
                         else Console.WriteLine("Authorization search request failed.");
                         break;
 
+                    case "capture_auth_manual":
+                        if (capture_auth_manual()) Console.WriteLine("Authorization capture request succeeded.");
+                        else Console.WriteLine("Authorization capture request failed.");
+                        break;
+
+                    case "capture_auth_convert":
+                        if (capture_auth_convert()) Console.WriteLine("Authorization capture request succeeded.");
+                        else Console.WriteLine("Authorization capture request failed.");
+                        break;
+
                     #endregion
 
                     #region Payment

@@ -46,6 +46,8 @@
     <Compile Include="api_wrappers\ach\post_ach_retrieval.cs" />
     <Compile Include="api_wrappers\ach\post_ach_settlement.cs" />
     <Compile Include="api_wrappers\ach\post_ach_balance.cs" />
+    <Compile Include="api_wrappers\authorization\capture_auth_manual.cs" />
+    <Compile Include="api_wrappers\authorization\capture_auth_convert.cs" />
     <Compile Include="api_wrappers\authorization\get_all_authorizations.cs" />
     <Compile Include="api_wrappers\authorization\get_authorization.cs" />
     <Compile Include="api_wrappers\authorization\key_authorization.cs" />
