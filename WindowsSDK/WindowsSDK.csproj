@@ -52,6 +52,13 @@
     <Compile Include="sdk\APIs\ach\sp_ach_retrieval.cs" />
     <Compile Include="sdk\APIs\ach\sp_ach_settlement.cs" />
     <Compile Include="sdk\APIs\ach\sp_ach_balance.cs" />
+    <Compile Include="sdk\APIs\authorize\sp_get_all_authorization.cs" />
+    <Compile Include="sdk\APIs\authorize\sp_get_authorization.cs" />
+    <Compile Include="sdk\APIs\authorize\sp_key_authorization.cs" />
+    <Compile Include="sdk\APIs\authorize\sp_put_authorization.cs" />
+    <Compile Include="sdk\APIs\authorize\sp_void_authorization.cs" />
+    <Compile Include="sdk\APIs\authorize\sp_track1_authorization.cs" />
+    <Compile Include="sdk\APIs\authorize\sp_track2_authorization.cs" />
     <Compile Include="sdk\APIs\bank_account\sp_create_bank_account.cs" />
     <Compile Include="sdk\APIs\bank_account\sp_delete_bank_account.cs" />
     <Compile Include="sdk\APIs\bank_account\sp_get_all_bank_accounts.cs" />

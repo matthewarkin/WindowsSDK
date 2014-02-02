@@ -46,6 +46,13 @@
     <Compile Include="api_wrappers\ach\post_ach_retrieval.cs" />
     <Compile Include="api_wrappers\ach\post_ach_settlement.cs" />
     <Compile Include="api_wrappers\ach\post_ach_balance.cs" />
+    <Compile Include="api_wrappers\authorization\get_all_authorizations.cs" />
+    <Compile Include="api_wrappers\authorization\get_authorization.cs" />
+    <Compile Include="api_wrappers\authorization\key_authorization.cs" />
+    <Compile Include="api_wrappers\authorization\put_authorization.cs" />
+    <Compile Include="api_wrappers\authorization\void_authorization.cs" />
+    <Compile Include="api_wrappers\authorization\track1_authorization.cs" />
+    <Compile Include="api_wrappers\authorization\track2_authorization.cs" />
     <Compile Include="api_wrappers\bank_account\create_bank_account.cs" />
     <Compile Include="api_wrappers\bank_account\del_bank_account.cs" />
     <Compile Include="api_wrappers\bank_account\get_all_bank_accounts.cs" />
@@ -69,6 +76,7 @@
     <Compile Include="support\class_variables.cs" />
     <Compile Include="support\event\exception.cs" />
     <Compile Include="support\event\log.cs" />
+    <Compile Include="support\menu\menu_authorization.cs" />
     <Compile Include="support\menu\menu_stored_payment.cs" />
     <Compile Include="support\menu\menu_report.cs" />
     <Compile Include="support\menu\menu_ach.cs" />

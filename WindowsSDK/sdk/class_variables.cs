@@ -13,7 +13,7 @@ namespace WindowsSDK
 
         public bool _debug_output = false;
         public string _proxy_url = "";
-        public string _version = "v1.0.1";
+        public string _version = "v1.0.3";
 
         #endregion
 

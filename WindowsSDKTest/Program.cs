@@ -133,6 +133,10 @@ namespace WindowsSDKTest
                         menu_ach();
                         break;
 
+                    case "? authorization":
+                        menu_authorization();
+                        break;
+
                     case "? bank_account":
                         menu_bank_account();
                         break;
@@ -172,6 +176,45 @@ namespace WindowsSDKTest
                     case "token detail":
                         if (token_detail()) Console.WriteLine("Successfully retrieve token details");
                         else exit_application("Could not retrieve token details");
+                        break;
+
+                    #endregion
+
+                    #region Authorization
+                     
+                    case "key_authorization":
+                        if (key_authorization()) Console.WriteLine("Authorization request succeeded.");
+                        else Console.WriteLine("Authorization request failed.");
+                        break;
+
+                    case "track1_authorization":
+                        if (track1_authorization()) Console.WriteLine("Authorization request succeeded.");
+                        else Console.WriteLine("Authorization request failed.");
+                        break;
+
+                    case "track2_authorization":
+                        if (track2_authorization()) Console.WriteLine("Authorization request succeeded.");
+                        else Console.WriteLine("Authorization request failed.");
+                        break;
+
+                    case "void_authorization":
+                        if (void_authorization()) Console.WriteLine("Void request succeeded.");
+                        else Console.WriteLine("Void request failed.");
+                        break;
+
+                    case "get_authorization":
+                        if (get_authorization()) Console.WriteLine("Authorization retrieval request succeeded.");
+                        else Console.WriteLine("Authorization retrieval request failed.");
+                        break;
+
+                    case "get_all_authorizations":
+                        if (get_all_authorizations()) Console.WriteLine("Authorization retrieval request succeeded.");
+                        else Console.WriteLine("Authorization retrieval request failed.");
+                        break;
+
+                    case "search_authorizations":
+                        if (put_authorization()) Console.WriteLine("Authorization search request succeeded.");
+                        else Console.WriteLine("Authorization search request failed.");
                         break;
 
                     #endregion

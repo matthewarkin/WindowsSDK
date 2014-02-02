@@ -15,66 +15,70 @@ namespace WindowsSDK
     {
         public static bool is_default_new_or_null<T>(T x)
         {
+            if (x == null) return true;
+
             Type type = typeof(T);
             PropertyInfo[] properties = type.GetProperties(BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance);
             FieldInfo[] fields = type.GetFields(BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance);
-            int compareValue = 0;
+            int compare_val = 0;
 
             foreach (PropertyInfo property in properties)
             {
                 IComparable valx = property.GetValue(x, null) as IComparable;
 
-                IComparable newObj = null;
+                IComparable new_obj = null;
                 if (property.PropertyType == typeof(string))
                 {
-                    newObj = null;
+                    new_obj = null;
                 }
                 else
                 {
-                    newObj = Activator.CreateInstance(property.PropertyType) as IComparable;
+                    new_obj = Activator.CreateInstance(property.PropertyType) as IComparable;
                 }
 
                 if (valx == null)
                 {
-                    if (newObj != null)
+                    if (new_obj != null)
                     {
                         return false;
                     }
                 }
                 else
                 {
-                    compareValue = valx.CompareTo(newObj);
+                    compare_val = valx.CompareTo(new_obj);
                 }
-                if (compareValue != 0)
+
+                if (compare_val != 0)
+                {
                     return false;
+                }
             }
             foreach (FieldInfo field in fields)
             {
                 IComparable valx = field.GetValue(x) as IComparable;
-                IComparable newObj = null;
+                IComparable new_obj = null;
                 if (field.FieldType == typeof(string))
                 {
-                    newObj = null;
+                    new_obj = null;
                 }
                 else
                 {
-                    newObj = Activator.CreateInstance(field.FieldType) as IComparable;
+                    new_obj = Activator.CreateInstance(field.FieldType) as IComparable;
                 }
 
                 if (valx == null)
                 {
-                    if (newObj != null)
+                    if (new_obj != null)
                     {
                         return false;
                     }
                 }
                 else
                 {
-                    compareValue = valx.CompareTo(newObj);
+                    compare_val = valx.CompareTo(new_obj);
                 }
 
-                if (compareValue != 0)
-                    return false;
+                if (compare_val != 0) return false;
             }
 
             return true;

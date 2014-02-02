@@ -11,7 +11,7 @@ namespace WindowsSDKTest
         #region Class-Variables
 
         public static SlidePayWindowsSDK slidepay;
-        public static string _version = "v1.0.1";
+        public static string _version = "v1.0.3";
         public enum auth_type
         {
             email,

@@ -8,15 +8,8 @@ For support, email support@getcube.com
 ===============================================================================
 
 IMPORTANT NOTES:
-Do not try to build both projects together.  Build them separately.
-
-The WindowsSDKTest project uses a reference to the DLL that is created by
-building the WindowsSDK project.
-
-If you change anything in WindowsSDK, rebuild it by itself (right-click the 
-project and select 'Rebuild') to produce an updated DLL.  Then, remove and 
-re-add the reference to the DLL in the WindowsSDKTest project's 'Reference'
-list.
+The WindowsSDKTest project uses a reference to the output created by
+building the WindowsSDK project.  They can now be built together.
 
 The DLL output from building the WindowsSDK project can be included in your 
 application directly.  Please use the source code and the WindowsSDKTest 
@@ -63,6 +56,10 @@ else Console.WriteLine("Approved payment ID " + curr.payment_id);
 ===============================================================================
 
 RELEASE NOTES:
+v1.0.3 - February, 2014
+- Feature updates
+- Bugfix to REST client
+
 v1.0.2 - January, 2014
 - Feature updates
 
@@ -76,6 +73,11 @@ v1.0.0 - August, 2013
 ===============================================================================
 
 VERSION HISTORY:
+v1.0.3 - February, 2014
+- Feature updates
+- Added support for authorization APIs
+- Added support for void API
+
 v1.0.2 - January, 2014
 - Feature updates
 - Added support for authentication via existing token
